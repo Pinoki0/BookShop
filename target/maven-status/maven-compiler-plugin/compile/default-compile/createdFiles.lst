@@ -1,8 +1,7 @@
-com\example\BookShop\repositories\DatabaseSequenceRepo.class
-com\example\BookShop\repositories\OrderStatusRepo.class
 com\example\BookShop\repositories\BookRepo.class
 com\example\BookShop\models\Author.class
 com\example\BookShop\models\Book.class
+com\example\BookShop\configuration\SecurityConfig.class
 com\example\BookShop\models\Order.class
 com\example\BookShop\repositories\PublishingHouseRepo.class
 com\example\BookShop\models\BookGenre.class
@@ -10,9 +9,12 @@ com\example\BookShop\models\OrderStatus.class
 com\example\BookShop\models\PublishingHouse.class
 com\example\BookShop\models\DatabaseSequence.class
 com\example\BookShop\services\DatabaseSequenceService.class
+com\example\BookShop\services\UserDetailsService.class
 com\example\BookShop\repositories\AuthorRepo.class
 com\example\BookShop\repositories\BookRatingRepo.class
+com\example\BookShop\models\User.class
 com\example\BookShop\models\BookRating.class
 com\example\BookShop\repositories\OrderRepo.class
 com\example\BookShop\BookShopApplication.class
-com\example\BookShop\repositories\BookGenreRepo.class
+com\example\BookShop\repositories\UserRepo.class
+com\example\BookShop\services\UserRepositoryUserDetailsService.class

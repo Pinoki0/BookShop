@@ -1,12 +1,15 @@
 package com.example.BookShop.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.sql.Date;
-
+@Getter
+@Setter
 @Document(collection = "book_rating")
 public class BookRating {
     @Transient
@@ -16,6 +19,7 @@ public class BookRating {
     private String id;
 
     private String bookId;
+
     private String comment;
 
     @Range(min = 1, max = 5)

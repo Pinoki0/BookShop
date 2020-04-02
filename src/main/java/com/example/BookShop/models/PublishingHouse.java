@@ -2,6 +2,7 @@ package com.example.BookShop.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -13,7 +14,10 @@ public class PublishingHouse {
     public static final String SEQUENCE_NAME = "publishing_house_sequence";
 
     @Id
-    String id;
-    String name;
-    List<Book> books = new ArrayList<>();
+    private String id;
+
+    private String name;
+
+    @DBRef
+    private List<Book> books = new ArrayList<>();
 }

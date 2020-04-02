@@ -2,8 +2,10 @@ package com.example.BookShop.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "authors")
@@ -15,6 +17,9 @@ public class Author {
     private String id;
 
     private String name;
+
     private String surname;
-    private List<Book> books;
+
+    @DBRef
+    private List<Book> books= new ArrayList<>();
 }
