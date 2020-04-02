@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.example.BookShop.BookShopApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.878 s <<< FAILURE! - in com.example.BookShop.BookShopApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'databaseSequenceService' defined in file [C:\Users\Admin\Desktop\BookShopProject\BookShop\target\classes\com\example\BookShop\services\DatabaseSequenceService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'databaseSequenceRepo': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property find found for type DatabaseSequenceRepo!
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'databaseSequenceRepo': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property find found for type DatabaseSequenceRepo!
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property find found for type DatabaseSequenceRepo!
+
