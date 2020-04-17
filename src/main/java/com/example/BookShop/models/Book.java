@@ -21,6 +21,8 @@ public class Book {
 
     private BookGenre genre;
 
+    private String test;
+
     private Date premiere;
 
     @DBRef

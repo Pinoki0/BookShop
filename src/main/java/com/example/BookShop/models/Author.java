@@ -18,6 +18,8 @@ public class Author {
 
     private String name;
 
+    private String test;
+
     private String surname;
 
     @DBRef
