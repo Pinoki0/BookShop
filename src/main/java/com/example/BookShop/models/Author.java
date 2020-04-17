@@ -21,5 +21,5 @@ public class Author {
     private String surname;
 
     @DBRef
-    private List<Book> books= new ArrayList<>();
+    private List<Book> books = new ArrayList<>();
 }

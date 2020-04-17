@@ -13,6 +13,7 @@ com\example\BookShop\services\UserDetailsService.class
 com\example\BookShop\repositories\AuthorRepo.class
 com\example\BookShop\repositories\BookRatingRepo.class
 com\example\BookShop\models\User.class
+com\example\BookShop\controllers\UserController.class
 com\example\BookShop\models\BookRating.class
 com\example\BookShop\repositories\OrderRepo.class
 com\example\BookShop\BookShopApplication.class

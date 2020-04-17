@@ -1,7 +1,5 @@
 package com.example.BookShop.configuration;
 
-import com.example.BookShop.repositories.UserRepo;
-import com.example.BookShop.services.UserRepositoryUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

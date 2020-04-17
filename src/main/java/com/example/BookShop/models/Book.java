@@ -19,7 +19,7 @@ public class Book {
 
     private String name;
 
-  //  private BookGenre genre;
+    private BookGenre genre;
 
     private Date premiere;
 
