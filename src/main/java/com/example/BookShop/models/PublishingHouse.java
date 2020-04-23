@@ -18,6 +18,8 @@ public class PublishingHouse {
 
     private String name;
 
+    private String surname;
+
     @DBRef
     private List<Book> books = new ArrayList<>();
 }

@@ -1,14 +1,15 @@
 package com.example.BookShop.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
+@Getter
+@Setter
 @Document(collection = "books")
 public class Book {
     @Transient
@@ -17,20 +18,27 @@ public class Book {
     @Id
     private String id;
 
-    private String name;
+    private String title;
 
-    private BookGenre genre;
+    private String description;
+//    private BookGenre genre;
+//
+//    private Date premiere;
 
-    private String test;
+//    @DBRef
+//    private PublishingHouse publishingHouse;
+//
+//    @DBRef
+//    private Author author;
+//
+//    @DBRef
+//    private List<BookRating> bookRatings = new ArrayList<>();
 
-    private Date premiere;
-
-    @DBRef
-    private PublishingHouse publishingHouse;
-
-    @DBRef
-    private Author author;
-
-    @DBRef
-    private List<BookRating> bookRatings = new ArrayList<>();
+    public Book(String title, String description) {
+        this.title = title;
+        this.description = description;
+//        this.premiere = premiere;
+//        this.publishingHouse = publishingHouse;
+//        this.author = author;
+    }
 }
