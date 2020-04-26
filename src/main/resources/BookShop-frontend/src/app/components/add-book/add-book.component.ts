@@ -4,12 +4,12 @@ import { BookService } from 'src/app/services/book.service';
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
-  styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent implements OnInit {
   book = {
     title: '',
-    description: ''
+    description: '',
+    premiereDate: ''
   };
   submitted = false;
 
@@ -21,7 +21,8 @@ export class AddBookComponent implements OnInit {
   saveBook() {
     const data = {
       title: this.book.title,
-      description: this.tutorial.description
+      description: this.book.description,
+      premiereDate: this.book.premiereDate
     };
 
     this.bookService.create(data)
@@ -39,7 +40,8 @@ export class AddBookComponent implements OnInit {
     this.submitted = false;
     this.book = {
       title: '',
-      description: ''
+      description: '',
+      premiereDate: ''
     };
   }
 }

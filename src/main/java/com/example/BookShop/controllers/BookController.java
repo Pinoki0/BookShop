@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin
 @Controller
 @RequestMapping("/api")
 public class BookController {
@@ -45,11 +45,11 @@ public class BookController {
         return book.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
+//TODO dodanie daty i genre, potem autor i wydawnictwo
     @PostMapping("/books/add")
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
         try {
-            Book _book = bookRepo.save(new Book(book.getTitle(),book.getDescription()));
+            Book _book = bookRepo.save(new Book(book.getTitle(),book.getDescription(), book.getPremiereDate()));
             return new ResponseEntity<>(_book, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);

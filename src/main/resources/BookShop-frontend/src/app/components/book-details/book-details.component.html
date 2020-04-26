@@ -23,17 +23,17 @@
     </div>
   </form>
 
-  <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+  <button class="badge badge-danger mr-2" (click)="deleteBook()">
     Delete
   </button>
 
-  <button type="submit" class="badge badge-success" (click)="updateTutorial()">
+  <button type="submit" class="badge badge-success" (click)="updateBook()">
     Update
   </button>
   <p>{{ message }}</p>
 </div>
 
-<div *ngIf="!currentTutorial">
+<div *ngIf="!currentBook">
   <br />
-  <p>Cannot access this Tutorial...</p>
+  <p>Cannot access this Book...</p>
 </div>

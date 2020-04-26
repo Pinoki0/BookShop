@@ -1,6 +1,5 @@
-<div class="list row">
-  <div class="col-md-8">
-    <div class="input-group mb-3">
+<div class="row">
+    <div class="input-group">
       <input
         type="text"
         class="form-control"
@@ -15,44 +14,66 @@
         >
           Search
         </button>
-      </div>
     </div>
   </div>
-  <div class="col-md-6">
-    <h4>Books List</h4>
-    <ul class="list-group">
+  <div class="col">
+    <h4></h4>
+    <ul class="list-group list">
       <li
-        class="list-group-item"
+        class="list-group-item d-flex justify-content-between align-items-center"
         *ngFor="let book of books; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveBook(book, i)"
+        a href="#myModal"
+        data-toggle="modal"
       >
         {{ book.title }}
+        <span class="badge badge-primary badge-pill">12</span>
       </li>
     </ul>
-
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBooks()">
-      Remove All
-    </button>
+    <div class="text-center">
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBooks()">
+        Remove All
+      </button>
+    </div>
   </div>
   <div class="col-md-6">
     <div *ngIf="currentBook">
-      <h4>Book</h4>
-      <div>
-        <label><strong>Book:</strong></label> {{ currentBook.title }}
+  <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class='col-12 modal-title text-center'>
+                Book preview
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
+                </button>
+              </h3>
+            </div>
+            <div class="modal-body">
+              <div>
+                <label><strong>Book:</strong></label>
+                {{ currentBook.title }}
+              </div>
+              <div>
+                <label><strong>Description:</strong></label>
+                {{ currentBook.description }}
+              </div>
+              <div>
+                <label><strong>Premiere date:</strong></label>
+                {{ currentBook.date }}
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a class="badge badge-warning" href="/books/{{ currentBook.id }}/update">
+                Edit
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <label><strong>Description:</strong></label>
-        {{ currentBook.description }}
-      </div>
-      <a class="badge badge-warning" href="/books/{{ currentBook.id }}/update">
-        Edit
-      </a>
-    </div>
-
-    <div *ngIf="!currentBook">
-      <br />
-      <p>Please click on a Book...</p>
     </div>
   </div>
 </div>

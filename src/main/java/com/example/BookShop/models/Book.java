@@ -23,7 +23,7 @@ public class Book {
     private String description;
 //    private BookGenre genre;
 //
-//    private Date premiere;
+    private String premiereDate;
 
 //    @DBRef
 //    private PublishingHouse publishingHouse;
@@ -34,9 +34,10 @@ public class Book {
 //    @DBRef
 //    private List<BookRating> bookRatings = new ArrayList<>();
 
-    public Book(String title, String description) {
+    public Book(String title, String description, String premiereDate) {
         this.title = title;
         this.description = description;
+        this.premiereDate = premiereDate;
 //        this.premiere = premiere;
 //        this.publishingHouse = publishingHouse;
 //        this.author = author;

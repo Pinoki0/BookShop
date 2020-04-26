@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
-  styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
   currentBook = null;
@@ -34,7 +33,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   updateBook() {
-    this.bookService.update(this.bookService.id, this.currentBook)
+    this.bookService.update(this.currentBook.id, this.currentBook)
       .subscribe(
         response => {
           console.log(response);
