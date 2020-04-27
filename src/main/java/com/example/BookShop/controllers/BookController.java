@@ -2,6 +2,7 @@ package com.example.BookShop.controllers;
 
 import com.example.BookShop.models.Book;
 import com.example.BookShop.repositories.BookRepo;
+import com.example.BookShop.services.DatabaseSequenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,9 @@ import java.util.Optional;
 public class BookController {
     @Autowired
     BookRepo bookRepo;
+
+    @Autowired
+    DatabaseSequenceService sequenceGenerator;
 
     @GetMapping("/books")
     public ResponseEntity<List<Book>> getBooks(@RequestParam(required = false) String title) {
@@ -49,7 +53,12 @@ public class BookController {
     @PostMapping("/books/add")
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
         try {
-            Book _book = bookRepo.save(new Book(book.getTitle(),book.getDescription(), book.getPremiereDate()));
+            Book _book = new Book();
+            _book.setId(sequenceGenerator.generateSequence(Book.SEQUENCE_NAME));
+            _book.setTitle(book.getTitle());
+            _book.setDescription(book.getDescription());
+            _book.setPremiereDate(book.getPremiereDate());
+            bookRepo.save(_book);
             return new ResponseEntity<>(_book, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);

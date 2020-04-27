@@ -16,7 +16,7 @@ public class Book {
     public static final String SEQUENCE_NAME = "books_sequence";
 
     @Id
-    private String id;
+    private long id;
 
     private String title;
 
@@ -25,7 +25,7 @@ public class Book {
 //
     private String premiereDate;
 
-//    @DBRef
+//    @DBRef(lazy = true)
 //    private PublishingHouse publishingHouse;
 //
 //    @DBRef
@@ -34,12 +34,12 @@ public class Book {
 //    @DBRef
 //    private List<BookRating> bookRatings = new ArrayList<>();
 
-    public Book(String title, String description, String premiereDate) {
-        this.title = title;
-        this.description = description;
-        this.premiereDate = premiereDate;
-//        this.premiere = premiere;
-//        this.publishingHouse = publishingHouse;
-//        this.author = author;
-    }
+//    public Book(String title, String description, String premiereDate) {
+//        this.title = title;
+//        this.description = description;
+//        this.premiereDate = premiereDate;
+////        this.premiere = premiere;
+////        this.publishingHouse = publishingHouse;
+////        this.author = author;
+//    }
 }
