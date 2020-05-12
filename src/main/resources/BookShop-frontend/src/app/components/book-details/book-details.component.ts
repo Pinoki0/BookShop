@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BookDetailsComponent implements OnInit {
   currentBook = null;
   message = '';
+  submitted = false;
 
   constructor(
     private bookService: BookService,
@@ -33,6 +34,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   updateBook() {
+
     this.bookService.update(this.currentBook.id, this.currentBook)
       .subscribe(
         response => {
@@ -42,7 +44,8 @@ export class BookDetailsComponent implements OnInit {
         error => {
           console.log(error);
         });
-  }
+
+    }
 
   deleteBook() {
     this.bookService.delete(this.currentBook.id)

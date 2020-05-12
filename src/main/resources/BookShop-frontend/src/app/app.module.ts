@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { BooksListComponent } from './components/books-list/books-list.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { AddShoppingCartComponent } from './components/add-shopping-cart/add-shopping-cart.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
@@ -15,7 +17,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     AppComponent,
     AddBookComponent,
     BookDetailsComponent,
-    BooksListComponent
+    BooksListComponent,
+    ShoppingCartComponent,
+    AddShoppingCartComponent
   ],
   imports: [
     BrowserModule,

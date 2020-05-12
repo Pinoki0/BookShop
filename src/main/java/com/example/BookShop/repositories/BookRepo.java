@@ -8,5 +8,9 @@ import java.util.List;
 
 @Repository
 public interface BookRepo extends MongoRepository<Book, String> {
-    List<Book> findByTitleContaining(String title);
+    List<Book> findByAvailableAndTitleContaining(boolean available, String title);
+    List<Book> findByAvailable(boolean available);
+    Book findById(long id);
+    void deleteById(long id);
+
 }

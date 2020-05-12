@@ -18,7 +18,11 @@ public class Book {
     @Id
     private long id;
 
+    private int price;
+
     private String title;
+
+    private boolean available;
 
     private String description;
 //    private BookGenre genre;

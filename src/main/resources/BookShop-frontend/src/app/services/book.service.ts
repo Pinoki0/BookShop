@@ -26,6 +26,10 @@ constructor(private http: HttpClient) { }
     return this.http.put(`${baseUrl}/${id}/update`, data);
   }
 
+  updateAvailable(id, data) {
+    return this.http.put(`${baseUrl}/${id}/update/available`, data);
+  }
+
   delete(id) {
     return this.http.delete(`${baseUrl}/${id}`);
   }

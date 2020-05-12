@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/app/services/book.service';
 
 @Component({
-  selector: 'app-books-list',
-  templateUrl: './books-list.component.html',
-  styleUrls: ['./books-list.component.css']
+  selector: 'app-shopping-cart',
+  templateUrl: './shopping-cart.component.html',
+  styleUrls: ['./shopping-cart.component.css']
 })
-export class BooksListComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit {
 
   books: any;
   currentBook = null;
@@ -65,15 +65,4 @@ export class BooksListComponent implements OnInit {
           console.log(error);
         });
   }
-    updateBook() {
-      this.bookService.updateAvailable(this.currentBook.id, this.currentBook)
-        .subscribe(
-          response => {
-            console.log(response);
-          },
-          error => {
-            console.log(error);
-          });
-
-      }
 }

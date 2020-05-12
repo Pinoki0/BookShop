@@ -9,7 +9,8 @@ export class AddBookComponent implements OnInit {
   book = {
     title: '',
     description: '',
-    premiereDate: ''
+    premiereDate: '',
+    price: ''
   };
   submitted = false;
 
@@ -22,7 +23,8 @@ export class AddBookComponent implements OnInit {
     const data = {
       title: this.book.title,
       description: this.book.description,
-      premiereDate: this.book.premiereDate
+      premiereDate: this.book.premiereDate,
+      price: this.book.price
     };
 
     this.bookService.create(data)
@@ -41,7 +43,8 @@ export class AddBookComponent implements OnInit {
     this.book = {
       title: '',
       description: '',
-      premiereDate: ''
+      premiereDate: '',
+      price: ''
     };
   }
 }

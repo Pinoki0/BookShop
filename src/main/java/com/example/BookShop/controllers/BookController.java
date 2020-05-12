@@ -28,9 +28,9 @@ public class BookController {
             List<Book> books = new ArrayList<>();
 
             if (title == null)
-                books.addAll(bookRepo.findAll());
+                books.addAll(bookRepo.findByAvailable(true));
             else
-                books.addAll(bookRepo.findByTitleContaining(title));
+                books.addAll(bookRepo.findByAvailableAndTitleContaining(true,title));
 
             if (books.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -44,7 +44,7 @@ public class BookController {
 
     @GetMapping("/books/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable("id") String id) {
-        Optional<Book> book = bookRepo.findById(id);
+        Optional<Book> book = Optional.ofNullable(bookRepo.findById(Long.valueOf(id)));
 
         return book.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -58,6 +58,8 @@ public class BookController {
             _book.setTitle(book.getTitle());
             _book.setDescription(book.getDescription());
             _book.setPremiereDate(book.getPremiereDate());
+            _book.setAvailable(true);
+            _book.setPrice(book.getPrice());
             bookRepo.save(_book);
             return new ResponseEntity<>(_book, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -66,13 +68,27 @@ public class BookController {
     }
 
     @PutMapping("/books/{id}/update")
-    public ResponseEntity<Book> updateBook(@PathVariable("id") String id, @RequestBody Book book) {
-        Optional<Book> tutorialData = bookRepo.findById(id);
+    public ResponseEntity<Book> updateBook(@PathVariable("id") long id, @RequestBody Book book) {
+        Optional<Book> bookData = Optional.ofNullable(bookRepo.findById(id));
 
-        if (tutorialData.isPresent()) {
-            Book _book = tutorialData.get();
+        if (bookData.isPresent()) {
+            Book _book = bookData.get();
             _book.setTitle(book.getTitle());
             _book.setDescription(book.getDescription());
+            _book.setPrice(book.getPrice());
+            return new ResponseEntity<>(bookRepo.save(_book), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/books/{id}/update/available")
+    public ResponseEntity<Book> updateBookAvailable(@PathVariable("id") long id, @RequestBody Book book) {
+        Optional<Book> bookData = Optional.ofNullable(bookRepo.findById(id));
+
+        if (bookData.isPresent()) {
+            Book _book = bookData.get();
+            _book.setAvailable(false);
             return new ResponseEntity<>(bookRepo.save(_book), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -80,7 +96,7 @@ public class BookController {
     }
 
     @DeleteMapping("/books/{id}")
-    public ResponseEntity<HttpStatus> deleteBook(@PathVariable("id") String id) {
+    public ResponseEntity<HttpStatus> deleteBook(@PathVariable("id") long id) {
         try {
             bookRepo.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

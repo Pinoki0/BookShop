@@ -21,16 +21,48 @@
         name="description"
       />
     </div>
+    <div class="form-group">
+    <label for="price">Price</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupPrepend">$</span>
+      </div>
+      <input type="number"
+             class="form-control"
+             id="price"
+             placeholder="Price"
+             aria-describedby="inputGroupPrepend"
+             required
+             [(ngModel)]="currentBook.price"
+             name="price"
+      >
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+    </div>
   </form>
 
+
+</div>
+<div class="bs-example">
   <button class="badge badge-danger mr-2" (click)="deleteBook()">
     Delete
   </button>
-
-  <button type="submit" class="badge badge-success" (click)="updateBook()">
+  <button type="submit" class="badge badge-success show-toast" (click)="updateBook()">
     Update
   </button>
-  <p>{{ message }}</p>
+  <div class="toast" id="myToast" data-autohide="false" style="position: absolute; top: 0; right: 0;">
+    <div class="toast-header">
+      <small>updated right now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      <div>Successful update!<a href="/books"> Return</a></div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="!currentBook">

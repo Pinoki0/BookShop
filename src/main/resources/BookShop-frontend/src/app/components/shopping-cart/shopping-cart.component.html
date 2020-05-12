@@ -1,19 +1,19 @@
 <div class="row">
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search by title"
-        [(ngModel)]="title"
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="searchTitle()"
-        >
-          Search
-        </button>
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by title"
+      [(ngModel)]="title"
+    />
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-secondary"
+        type="button"
+        (click)="searchTitle()"
+      >
+        Search
+      </button>
     </div>
   </div>
   <div class="col">
@@ -28,7 +28,7 @@
         data-toggle="modal"
       >
         {{ book.title }}
-        <span class="badge badge-primary badge-pill">{{ book.price }}$</span>
+        <span class="badge badge-primary badge-pill">{{ book.amount }}</span>
       </li>
     </ul>
     <div class="text-center">
@@ -39,7 +39,7 @@
   </div>
   <div class="col-md-6">
     <div *ngIf="currentBook">
-  <!-- Modal -->
+      <!-- Modal -->
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
@@ -65,17 +65,10 @@
                 <label><strong>Premiere date:</strong></label>
                 {{ currentBook.date }}
               </div>
-              <div>
-                <label><strong>Price:</strong></label>
-                {{ currentBook.price }}$
-              </div>
             </div>
             <div class="modal-footer">
               <a class="badge badge-warning" href="/books/{{ currentBook.id }}/update">
                 Edit
-              </a>
-              <a  type="submit" class="badge badge-success show-toast" (click)="updateBook()">
-                Edit2
               </a>
             </div>
           </div>
